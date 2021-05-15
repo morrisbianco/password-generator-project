@@ -14,43 +14,60 @@
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
 
-var lowercase;
-var uppercase;
-var numbers;
-var specialCharacters;
+var userOption = {
+  lowercase: ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"],
+  uppercase: ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+  numbers: [0,1,2,3,4,5,6,7,8,9],
+  specialCharacters: ["!","”","#","$","%","&","’","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~"],
+};
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var userAnwser = promptUserAnwser();
+var characterLength = (choice = 8);
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  var userAnwser = promptUserAnwser();
 
   passwordText.value = password;
 
+  
 }
 
-function promptUserAnwser(msg) {
-  var basicMsg; 
+function promptUserAnwser(message) {
+  var message;
 
-  if (msg) {
-      basicMsg = msg;
+  if (message) {
+  characterMsg = message;
   } else {
-      basicMsg = "Please choose your password's length. It has to be at least 8 characters and no more than 128 characters.";
-  }
+    characterMsg = "Please choose a length of at least 8 characters and no more than 128 characters.";
+  };
 
-  var anwser = prompt(basicMsg);
+  var choice = prompt(characterMsg);
 
-  console.log(anwser);
+  console.log(choice);
 
-  if (anwser < 8 && anwser > 128) {
-      return anwser;
-  } else {
-      var invalid = "You choice was not between 8 and 128 characters, please try again. Choose your password's length.";
-      promptUserAnwser(invalid);
-  }
+  if (characterLength) {
+    var lowercase = confirm("Would you like to include lowercase letters?");
+    console.log(lowercase);
+  } else  
+
+  if ( ) {
+    var uppercase = confirm("Would you like to include uppercase letters?");
+    console.log(uppercase);
+  } else 
+
+  if ( ) {
+    var numbers = confirm("Would you like to include numbers?");
+    console.log(numbers);
+  } else 
+
+  if ( ) {
+    var specialCharacters = confirm("Would you like to include special characters?");
+    console.log(specialCharacters);
+  } else 
 }
 
 // Add event listener to generate button
